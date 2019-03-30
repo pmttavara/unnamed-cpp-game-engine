@@ -1,0 +1,3 @@
+# Unnamed C++ Game Engine: 2015-2017
+
+The source code to this project documents the tremendous learning experience I had engineering a game engine using the SDL2 platform layer over the course of two years. Even at this project's scale of software, I began to notice the common challenges that arise from complex interconnecting systems. It's something I now understand is present in professional environments that they didn't teach in high school or in university Computer Science. That is one reason why I consider this to be such a personally valuable codebase - despite making some engineering decisions (some for the game design) that I likely wouldn't make today.

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+    <Type Name="ng::string">
+        <DisplayString>{ptr, s}</DisplayString>
+    </Type>
+    <Type Name="ng::array&lt;*&gt;">
+        <DisplayString>(count = {count}, capacity = {capacity}, allocator = {alloc})</DisplayString>
+        <Expand>
+            <ArrayItems>
+                <Size>count</Size>
+                <ValuePointer>data</ValuePointer>
+            </ArrayItems>
+            <Item Name="[allocator]">alloc</Item>
+        </Expand>
+    </Type>
+    <Type Name="ng::hash_table&lt;*&gt;">
+        <DisplayString>(count = {count}, capacity = {capacity}, allocator = {alloc})</DisplayString>
+        <Expand>
+            <CustomListItems MaxItemsPerView="5000" ExcludeView="Test">  
+                <Variable Name="iSlot" InitialValue="0" />
+  
+                <Size>count</Size>  
+                <Loop Condition="iSlot &lt; capacity">  
+                    <If Condition="slots[iSlot].occupied == true">  
+                        <Item>slots[iSlot].value</Item>
+                    </If>  
+                    <Exec>++iSlot</Exec>
+                </Loop>  
+            </CustomListItems>
+            <Item Name="[allocator]">alloc</Item>
+        </Expand>
+  </Type>
+</AutoVisualizer>
